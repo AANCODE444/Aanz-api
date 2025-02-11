@@ -214,7 +214,7 @@ app.get("/api/ai/gemini", async (req, res) => {
 try {
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const genAI = new GoogleGenerativeAI("AIzaSyCPlGoKHoePXhHIaI7TLUESYgExSiB5XbI");
+const genAI = new GoogleGenerativeAI("AIzaSyDr3WqpT4eWlJMKW7_-pw1NbfgvJ6YCJk8");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 const prompt = text
