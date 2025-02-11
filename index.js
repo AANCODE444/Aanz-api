@@ -204,42 +204,7 @@ app.get("/api/ai/gpt-3-5-turbo", async (req, res) => {
         console.log(error);
         res.status(500).json({ error: "An error occurred while fetching data." });
     }
-})
-
-
-app.get("/api/ai/gemini", async (req, res) => {
-    const { text } = req.query;
-    if (!text) return res.json("Isi Parameternya!");
-
-try {
-const { GoogleGenerativeAI } = require("@google/generative-ai");
-
-const genAI = new GoogleGenerativeAI("AIzaSyDr3WqpT4eWlJMKW7_-pw1NbfgvJ6YCJk8");
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-const prompt = text
-
-const result = await model.generateContent(prompt);
-const anu = await result.response.text()
-       
-        if (!anu) {
-        res.json ({
-        status: false,
-        creator: global.creator,
-        result: null
-        })
-        }
-
-        res.json({
-            status: true,
-            creator: global.creator,
-            result: anu
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: "An error occurred while fetching data." });
-    }
-})
+}
 
 
 app.get("/api/download/fbdl", async (req, res) => {
